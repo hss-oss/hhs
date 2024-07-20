@@ -1,6 +1,6 @@
 API
 ===
-ApiSensitiveWordController 中包含对应的 api 方法，后续可以添加验签等校验。
+WordController 中包含对应的 api 方法，后续可以添加验签等校验。
 
 接口列表
 ----
