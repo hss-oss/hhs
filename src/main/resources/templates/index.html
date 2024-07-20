@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>wangEditor 测试</title>
+  </head>
+  <body>
+    <h1 style="text-align:center;">脱敏编辑器</h1>
+
+
+    <div id="postEditor"></div>
+
+    <input type="button" onclick="fetchContent()" value="更新词库" />
+    <input type="button" onclick="sendContent()" value="提交" />
+  </body>
+  <script
+    type="text/javascript"
+    src="https://unpkg.com/wangeditor/dist/wangEditor.min.js"
+  ></script>
+  <script type="text/javascript">
+    // 初始化富文本编辑器 start
+
+    const E = window.wangEditor;
+    const editorD = new E("#postEditor");
+    // 设置编辑区域高度为 750px
+    editorD.config.height = 710;
+    // 配置服务端图片上传地址
+    editorD.config.uploadImgServer = "/uploadFiles";
+    editorD.config.uploadFileName = "files";
+    // 限制图片大小 2M
+    editorD.config.uploadImgMaxSize = 2 * 1024 * 1024;
+    // 限制一次最多能传几张图片 一次最多上传 5 个图片
+    editorD.config.uploadImgMaxLength = 5;
+    // 隐藏插入网络图片的功能
+    editorD.config.showLinkImg = false;
+    editorD.create();
+
+    // 上传富文本
+    function sendContent() {
+      var content = editorD.txt.html();
+      fetch("/word/sensitive", {
+        method: "POST",
+        body: JSON.stringify({'content': content}),
+        headers: {
+        'content-type': 'application/json' // 请求内容类型
+        }
+
+      })
+        .then((res) => res.json())
+        .then((data) => {
+            var res = data.res;
+            console.log(res);
+            editorD.txt.html(res);
+        });
+    }
+    // 获取 富文本
+    function fetchContent() {
+      fetch("/word/reload_dictionary", { method: "POST"})
+        .then((res) => alert('成功'));
+    }
+  </script>
+</html>
