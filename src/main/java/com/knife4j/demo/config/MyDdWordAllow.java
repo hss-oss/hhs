@@ -3,7 +3,7 @@
  */
 package com.knife4j.demo.config;
 
-import com.github.houbb.sensitive.word.api.IWordDeny;
+import com.github.houbb.sensitive.word.api.IWordAllow;
 import org.springframework.stereotype.Component;
 import java.util.List;
 
@@ -13,11 +13,11 @@ import java.util.List;
  * @version $Id: MyDdWordDeny.java, v 0.1 2024年07月19日 9:55 PM yuwei Exp $
  */
 @Component
-public class MyDdWordDeny extends LocalDictionary implements IWordDeny {
+public class MyDdWordAllow extends LocalDictionary implements IWordAllow {
 
 
     @Override
-    public List<String> deny() {
-        return readWords("敏感词库.txt");
+    public List<String> allow() {
+        return readWords("白名单词库.txt");
     }
 }
