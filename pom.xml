@@ -111,7 +111,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <finalName>high-line-sensitive-word</finalName>
+                    <finalName>highlight-sensitive-word</finalName>
                 </configuration>
             </plugin>
         </plugins>

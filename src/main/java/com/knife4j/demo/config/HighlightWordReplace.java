@@ -12,9 +12,9 @@ import com.github.houbb.sensitive.word.utils.InnerWordCharUtils;
  * 高亮
  *
  * @author yuwei
- * @version $Id: HighLineWordReplace.java, v 0.1 2024年07月19日 10:10 PM yuwei Exp $
+ * @version $Id: HighlightWordReplace.java, v 0.1 2024年07月19日 10:10 PM yuwei Exp $
  */
-public class HighLineWordReplace implements IWordReplace {
+public class HighlightWordReplace implements IWordReplace {
 
     @Override
     public void replace(StringBuilder stringBuilder, final char[] rawChars, IWordResult wordResult, IWordContext wordContext) {
