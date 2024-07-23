@@ -26,7 +26,7 @@ public class SensitiveWordConfig {
                 .wordDeny(new MyDdWordDeny())
                 .wordAllow(new MyDdWordAllow())
                 // 高亮敏感词
-                .wordReplace(new HighLineWordReplace())
+                .wordReplace(new HighlightWordReplace())
                 // 指定忽略的字符策略
                 //.charIgnore(SensitiveWordCharIgnores.specialChars())
                 .wordResultCondition(WordResultConditions.englishWordMatch())
